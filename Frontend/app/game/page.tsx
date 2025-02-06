@@ -529,17 +529,19 @@ const Game = () => {
   };
 
   return (
-    <div>
+    <div className="container mx-auto py-8">
       {gameOver ? (
-        <div className="text-center">
-          <h2>Game Over</h2>
-          <p>Winning Team: {winningTeam}</p>
+        <div className="text-center p-8 bg-gray-100 rounded-lg shadow-md">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Game Over</h2>
+          <p className="text-lg text-gray-700">Winning Team: {winningTeam}</p>
         </div>
       ) : (
-        <div>
-          <p>{turnMessage}</p>
-          <div className="flex">
-            <div className="w-1/2">
+        <div className="bg-black rounded-lg shadow-md overflow-hidden">
+          <div className="p-4 bg-gray-50 border-b border-gray-200">
+            <p className="text-lg font-medium text-gray-700">{turnMessage}</p>
+          </div>
+          <div className="flex text-white-700">
+            <div className="w-1/2 p-4">
               {teamA.map((character, index) => (
                 <Character
                   key={index}
@@ -563,7 +565,7 @@ const Game = () => {
                 />
               ))}
             </div>
-            <div className="w-1/2">
+            <div className="w-1/2 p-4">
               {teamB.map((character, index) => (
                 <Character
                   key={index}

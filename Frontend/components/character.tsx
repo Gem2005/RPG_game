@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 interface Effect {
   type: 'damage' | 'heal' | 'damageAndStun' | 'damageReduction' | 'invulnerability' | 'aoeDamage' | 'speedBoost' | 'poison' | 'multiDamage' | 'shield' | 'revive' | 'instantKill' | 'manaCostPercentage' | 'nothing'; // The actual effect types
@@ -133,9 +134,11 @@ const Character = ({
           </div>
         )}
       </div>
-      <img
+      <Image
         src={getCurrentImage()}
         alt={name}
+        width={144} // set appropriate width
+        height={144} // set appropriate height
         className={`h-36 object-cover rounded-full ${position === 'right' && 'scale-x-[-1]'}`}
       />
       {isHovered && canAttack && health > 0 && (
